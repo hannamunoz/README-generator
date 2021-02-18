@@ -1,4 +1,7 @@
 // TODO: Include packages needed for this application
+const inquirer = require('inquirer');
+const fs = require('fs');
+// will need a require for a js to generate ReaME
 
 // TODO: Create an array of questions for user input
 // Required information needed
@@ -37,7 +40,13 @@ const questions = [
         name: 'description',
         message: "Enter a short project description",
         default: "My Project Description",
-    }
+    },
+    {
+        type: 'list',
+        name: 'license',
+        message: "Please choose a license you would like to use",
+        choices: ['MIT', 'GNU', 'Apache', 'ISC', 'Other'],
+    },
 ];
 
 // TODO: Create a function to write README file
