@@ -1,7 +1,7 @@
 // TODO: Include packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
-// will need a require for a js to generate ReaME
+
 
 // TODO: Create an array of questions for user input
 // Required information needed
@@ -29,9 +29,9 @@ inquirer.prompt = ([
         type: 'input',
         name: 'contact',
         message: "Enter your email address or best point of contact",
-        default:  "hannamunoz@gmail.com",
+        default: "hannamunoz@gmail.com",
     },
-    {   
+    {
         // LinkedIn URL
         type: 'input',
         name: 'linkedIn',
@@ -92,31 +92,31 @@ inquirer.prompt = ([
         name: 'license',
         message: "Please choose a license you would like to use",
         choices: ['MIT', 'GNU', 'Apache', 'ISC', 'Open'],
-    },
-]).then((answers) => {
-    const {title, description, installation, usage, license, contributors, contributing, tests, username, contact, linkedIn} = answers;
+    }
+]).then(answers => {
+    const { title, description, installation, usage, license, contributors, contributing, tests, username, contact, linkedIn } = answers;
 
     switch (license) {
         case 'MIT':
-            licenseBadge = 'https://img.shields.io/badge/License-MIT-blue'
+            licenseBadge = 'https://img.shields.io/badge/License-MIT-blue';
             licenseUrl = 'https://opensource.org/licenses/MIT';
-        break;
+            break;
         case 'GNU':
-            licenseBadge = 'https://img.shields.io/badge/License-GNU-green'
+            licenseBadge = 'https://img.shields.io/badge/License-GNU-green';
             licenseUrl = 'https://opensource.org/licenses/gpl-license';
-        break;
+            break;
         case 'Apache':
-            licenseBadge = 'https://img.shields.io/badge/License-Apache--2.0-yellow'
+            licenseBadge = 'https://img.shields.io/badge/License-Apache--2.0-yellow';
             licenseUrl = 'https://opensource.org/licenses/Apache-2.0';
-        break;
+            break;
         case 'ISC':
-            licenseBadge = 'https://img.shields.io/badge/License-ISC-orange'
+            licenseBadge = 'https://img.shields.io/badge/License-ISC-orange';
             licenseUrl = 'https://opensource.org/licenses/ISC';
-        break;
+            break;
         case 'Open':
-            licenseBadge = 'https://img.shields.io/badge/License-Open-red'
+            licenseBadge = 'https://img.shields.io/badge/License-Open-red';
             licenseUrl = 'https://opensource.org/licenses/OSL-3.0';
-        break;
+            break;
     }
 
     const ReadMeFile = `# ${title}
@@ -154,12 +154,12 @@ inquirer.prompt = ([
     - Email: **[${contact}]
     - LinkedIn: **[${linkedIn}]
     
-    This project is ${license} licensed`
+    This project is ${license} licensed`;
 
     fs.writeFile("README.md", ReadMeFile, err => {
-        if(err) {
+        if (err) {
             console.log(err);
-        }else {
+        } else {
             console.log("ReadMe is all set!");
         }
     });
