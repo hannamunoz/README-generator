@@ -94,7 +94,10 @@ inquirer.prompt([
         choices: ['MIT', 'GNU', 'Apache', 'ISC', 'Open'],
     }
 ]).then((answers) => {
-    const { title, description, installation, usage, license, contributors, contributing, tests, username, contact, linkedIn } = answers;
+    const { title, description, installation, usage, license, contributors, 
+        contributing, tests, username, contact, linkedIn } = answers;
+    let licenseBadge;
+    let licenseUrl;
 
     switch (license) {
         case 'MIT':
