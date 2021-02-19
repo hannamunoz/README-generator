@@ -88,16 +88,39 @@ inquirer.prompt = ([
     },
     {
         // License choice
-        type: 'list',
+        type: 'checkbox',
         name: 'license',
         message: "Please choose a license you would like to use",
-        choices: ['MIT', 'GNU', 'Apache', 'ISC', 'Other'],
+        choices: ['MIT', 'GNU', 'Apache', 'ISC', 'Open'],
     },
-]).then(answers => {
+]).then((answers) => {
     const {title, description, installation, usage, license, contributors, contributing, tests, username, contact, linkedIn} = answers;
 
+    switch (license) {
+        case 'MIT':
+            licenseBadge = 'https://img.shields.io/badge/License-MIT-blue'
+            licenseUrl = 'https://opensource.org/licenses/MIT';
+        break;
+        case 'GNU':
+            licenseBadge = 'https://img.shields.io/badge/License-GNU-green'
+            licenseUrl = 'https://opensource.org/licenses/gpl-license';
+        break;
+        case 'Apache':
+            licenseBadge = 'https://img.shields.io/badge/License-Apache--2.0-yellow'
+            licenseUrl = 'https://opensource.org/licenses/Apache-2.0';
+        break;
+        case 'ISC':
+            licenseBadge = 'https://img.shields.io/badge/License-ISC-orange'
+            licenseUrl = 'https://opensource.org/licenses/ISC';
+        break;
+        case 'Open':
+            licenseBadge = 'https://img.shields.io/badge/License-Open-red'
+            licenseUrl = 'https://opensource.org/licenses/OSL-3.0';
+        break;
+    }
+
     const ReadMeFile = `# ${title}
-    ![GitHub License](${badge})
+    [![GitHub License](${licenseBadge})](${licenseUrl})
     
     ## *Table of Contents*
     - [Description](#description)
@@ -105,14 +128,41 @@ inquirer.prompt = ([
     - [Usage](#usage)
     - [Contributing](#contributing)
     - [Tests](#tests)
-    - [Questions](#questions)`
-})
+    - [Author](#author)
+    - [Questions](#questions)
+    
+    ## *Description*
+    ${description}
+    
+    ## *Installation*
+    ${installation}
+    
+    ## *Usage*
+    ${usage}
+    
+    ## *Contributing*
+    ${contributing}
+    
+    ## *Tests*
+    ${tests}
 
-// TODO: Create a function to write README file
-function writeToFile(fileName, data) { }
+    ## *Author*
+    ${contributors}
+    
+    ## *Questions*
+    - GitHub Username: **[${username}]
+    - Email: **[${contact}]
+    - LinkedIn: **[${linkedIn}]
+    
+    This project is ${license} licensed`
 
-// TODO: Create a function to initialize app
-function init() { }
+    fs.writeFile("README.md", ReadMeFile, err => {
+        if(err) {
+            console.log(err);
+        }else {
+            console.log("ReadMe is all set!");
+        }
+    });
+});
 
-// Function call to initialize app
-init();
+
