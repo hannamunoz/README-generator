@@ -1,5 +1,5 @@
 # README Generator
-[![GitHub License](https://img.shields.io/badge/License-Apache--2.0-yellow)](https://opensource.org/licenses/Apache-2.0)
+[![GitHub License](https://img.shields.io/badge/License-MIT-blue)](https://opensource.org/licenses/MIT)
 
 ---------------
 
@@ -15,7 +15,7 @@
 ---------------
 
 ## *Description*
-This project allows you to create a polished README by using the terminal to answer a few questions.
+This project allows you to easily create a README file by using the terminal.
 
 ---------------
 
@@ -25,7 +25,7 @@ npm i inquirer
 ---------------
 
 ## *Usage*
-Answer prompted questions to generate ReadME
+[Click here for tutorial video](https://drive.google.com/file/d/1HDak5B1JGElsCjiBQnyCiVTMXsg42Qqf/view?usp=sharing)
 
 ---------------
 
@@ -47,9 +47,9 @@ Hanna Munoz
 ## *Questions*
 Please feel to reach me at any of the points of contact below:
 - GitHub: github.com/hannamunoz
-- Email: [hannamunoz@gmail.com]
+- Email: hannamunoz@gmail.com
 - LinkedIn: https://www.linkedin.com/in/hanna-munoz-179993b2/
 
 ---------------
 
-This project is Apache licensed
+This project is MIT licensed
