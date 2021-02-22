@@ -1,21 +1,7 @@
-// TODO: Include packages needed for this application
+// Packages needed for this application
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-
-// TODO: Create an array of questions for user input
-// Required information needed
-// What is your project title?
-// Description of project
-// Installation instructions
-// Usage instructions
-// Contrubutors 
-// Tests
-// Choose your license
-// If user picks other option, they will need an input
-// Under questions section
-// GitHub username - links to your profile
-// email address
 inquirer.prompt([
     {
         // Username
@@ -171,7 +157,7 @@ ${contributors}
 ## *Questions*
 Please feel to reach me at any of the points of contact below:
 - GitHub: github.com/${username}
-- Email: [${contact}]
+- Email: ${contact}
 - LinkedIn: ${linkedIn}
 
 ---------------
